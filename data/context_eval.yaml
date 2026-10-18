@@ -1,0 +1,55 @@
+# Small, hand-labelled check of whether context packs help the coder.
+# Answers are SYNTHETIC, written to use everyday local political vocabulary;
+# gold codes were assigned by the author and should be re-labelled by
+# independent native coders before any claim is made.
+bangladesh:
+  - text: "Every few months there is a hartal and the whole city stops."
+    gold: [order]
+  - text: "Without a caretaker government nobody trusts the result."
+    gold: [elections]
+  - text: "It was a one-sided election, so what is the point of voting?"
+    gold: [elections]
+  - text: "Load-shedding in summer makes life unbearable."
+    gold: [services]
+  - text: "Whoever controls the tender gets rich, and the roads fall apart in a year."
+    gold: [corruption, economy]
+  - text: "A boy in my area was arrested for a Facebook post criticising the minister."
+    gold: [freedoms, politicians]
+  - text: "Our union parishad chairman never asks the people anything."
+    gold: [participation]
+  - text: "The Padma Bridge shows what development can do."
+    gold: [economy]
+  - text: "Shop owners pay extortion to local leaders every month."
+    gold: [corruption, politicians]
+  - text: "People are afraid of the blockade and the violence around elections."
+    gold: [order, elections]
+india:
+  - text: "The gram sabha in our village decides how the money is spent."
+    gold: [participation]
+  - text: "They only care about their vote bank before elections."
+    gold: [politicians, elections]
+  - text: "My family gets ration through the welfare scheme."
+    gold: [services]
+  - text: "Reservation gave my community a chance for the first time."
+    gold: [equality]
+  - text: "People question the EVMs, but I trust the Election Commission."
+    gold: [elections]
+  - text: "Another bandh, so the shops are closed again."
+    gold: [order]
+  - text: "Caste still decides who gets heard in the panchayat."
+    gold: [equality, participation]
+  - text: "Nothing happens in the office without a bribe."
+    gold: [corruption]
+germany:
+  - text: "The Bundestag argues while rent keeps going up."
+    gold: [checks, economy]
+  - text: "Thank God the constitutional court stops the worst ideas."
+    gold: [checks]
+  - text: "Getting an appointment at the office is pure bureaucracy."
+    gold: [services]
+  - text: "The public broadcaster must stay independent of the government."
+    gold: [freedoms, politicians]
+  - text: "Housing is the biggest problem for young families here."
+    gold: [economy]
+  - text: "Politikverdrossenheit is everywhere; people think politicians don't care."
+    gold: [politicians]

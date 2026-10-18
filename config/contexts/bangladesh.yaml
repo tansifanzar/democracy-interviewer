@@ -1,0 +1,62 @@
+# Context pack: Bangladesh. Draft by a Bangladeshi researcher; to be reviewed by
+# local experts and pre-tested before fieldwork. The construct each question
+# measures stays fixed; only wording, vocabulary and conduct adapt.
+id: bangladesh
+name: Bangladesh
+
+notes_for_agents: >-
+  Respondents may be cautious about criticising the government or naming a
+  party, especially after periods of political tension. Never ask which party
+  someone supports, never name parties or leaders yourself, and accept a
+  refusal without asking why. Development, stability and corruption are
+  everyday political topics, not signs of being "less democratic".
+
+vignettes:
+  vote_scenario: >-
+    Imagine two candidates in your constituency. One brought a new bridge and
+    roads to your area but had local journalists arrested. The other is honest
+    but achieved little. Who would get your vote, and why?
+  party_scenario: >-
+    Imagine the party you support postponed the next national election, saying
+    the country needs stability first. What would you do: vote for them again,
+    join a protest, or something else?
+
+# Local terms the coder must recognise, mapped to the shared codebook
+glossary:
+  hartal: order
+  blockade: order
+  caretaker government: elections
+  one-sided election: elections
+  vote rigging: elections
+  ballot stuffing: elections
+  election commission: elections
+  load-shedding: services
+  union parishad: participation
+  upazila: participation
+  tender: corruption
+  extortion: corruption
+  facebook post: freedoms
+  padma bridge: economy
+  metro rail: economy
+  rice: economy
+  onion: economy
+
+sensitive_topics: [party_scenario, past_behaviour]
+discomfort_markers: [prefer not, rather not, don't want to say, do not want to say, can't say, cannot say, not safe, risky, dangerous to say]
+reassurance: >-
+  That is completely fine. You do not have to answer anything you are not
+  comfortable with, and your answers are anonymous. Let's move on.
+
+probing_style: >-
+  Answers such as "it depends" or "everyone knows how it is" can be a polite,
+  indirect way of answering. Probe gently with a concrete everyday example
+  rather than repeating "why".
+
+interpretation_guardrails:
+  - "Naming development or stability as part of democracy reflects a substantive understanding of democracy that is widespread in many societies (Shin 2017); on its own it is not an anti-democratic attitude."
+  - "Low trust in elections may reflect lived experience of contested elections, not a weak commitment to elections as a principle. Code the evaluation (reality) separately from the principle (concept)."
+  - "Silence or refusal on party questions can signal perceived risk rather than lack of opinion; treat it as its own category, not as missing at random."
+
+literature:
+  - "Shin, D. C. (2017). Popular understanding of democracy. Oxford Research Encyclopedia of Politics."
+  - "Kirsch, H., & Welzel, C. (2018). Democracy misunderstood: Authoritarian notions of democracy around the globe. Social Forces."

@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "respondent_id": "S05",
+    "language": "en",
+    "persona": "development first (Bangladesh)",
+    "synthetic": true,
+    "bridge_arm": false,
+    "context": "bangladesh",
+    "questionnaire_version": "0.2",
+    "backend": "hand-written persona",
+    "model": null
+  },
+  "turns": [
+    {
+      "role": "interviewer",
+      "text": "Hello, and thank you for taking part. I am an AI interviewer for a research study on how people think about democracy. There are no right or wrong answers. I am interested in your own views, in your own words. You can skip any question or stop at any time by typing \"stop\". Shall we begin?",
+      "type": "intro",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, let's start.",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "To start, in your own words: what does democracy mean to you?",
+      "type": "main_question",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "To me democracy means the development of the country and a better life for people.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Why do you think so?",
+      "topic": "concept_meaning",
+      "module": "concept",
+      "type": "follow_up"
+    },
+    {
+      "role": "respondent",
+      "text": "Because for ordinary people, jobs, the price of rice and onions, and safety matter most.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?",
+      "type": "main_question",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, if the government delivers development, people will accept it. Newspapers matter less than rice.",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "What should democracy deliver for people like you?",
+      "type": "main_question",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Good hospitals, good schools, electricity without load-shedding, and no corruption.",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "If you could only have one of the two, fair elections or fast development, which would you choose, and why?",
+      "type": "main_question",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Fast development, without a doubt. Elections do not fill stomachs.",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "You mentioned hospitals, schools, electricity and no corruption. How well does your country do on these today?",
+      "type": "dynamic_question",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Electricity has improved and there are new bridges. But nothing moves in a government office without a bribe, and hospitals are in bad shape.",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?",
+      "type": "main_question",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "The first one. Roads and bridges are what people remember.",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?",
+      "type": "main_question",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "I would wait and see. If they keep developing the country, I can accept it.",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Did you vote in the last national election? Why or why not?",
+      "type": "main_question",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, I voted.",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Is there anything else about democracy that you would like to add?",
+      "type": "main_question",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "Bring prices down, that is all we want.",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "That was the last question. Thank you very much for sharing your thoughts. They are valuable for our research. Have a good day!",
+      "type": "outro",
+      "topic": null,
+      "module": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+# Decision log: the analytical forks in this pipeline, made explicit.
+#
+# Each decision was surfaced while building the pipeline with a coding agent.
+# `main` is the choice used for the headline results; `plausible` lists the
+# alternatives we judged defensible. `analysis/multiverse.py` re-runs the
+# analysis under every combination of main + plausible options and reports how
+# sensitive the results are. `considered_not_offered` records options that were
+# raised but set aside, so that the filtering itself is visible.
+version: "0.1"
+
+outcomes:
+  action_paradox: "Share of respondents who act against a principle they named (module A vs. module C)"
+  expectation_gap: "Share of respondents who see at least one of their expectations as badly delivered (module B)"
+
+decisions:
+  - id: sample
+    question: "Which interviews enter the analysis?"
+    stage: sample
+    options:
+      keep_all: "Keep every completed interview"
+      exclude_low_effort: "Drop low-effort interviews (mean answer shorter than 8 words)"
+    main: keep_all
+    plausible: [exclude_low_effort]
+    background: >-
+      Very short answers may reflect low effort, or simply people who express
+      themselves briefly; dropping them can bias the sample toward the articulate.
+    reviewer_asks: "Are low-effort respondents the very people whose attitudes are superficial (H1)? Dropping them may remove the effect."
+    considered_not_offered:
+      - "Drop interviews flagged by the safety agent (none in the synthetic data)"
+
+  - id: freedoms_endorsement
+    question: "When does a respondent count as endorsing press freedom?"
+    stage: coding
+    options:
+      strict: "Named unprompted in their definition, or judged essential at the boundary question"
+      any_mention: "Any mention of freedoms or the press in module A"
+    main: strict
+    plausible: [any_mention]
+    background: >-
+      Someone who says 'newspapers matter less than rice' mentions the press but
+      does not endorse it. A loose rule would flag their vote for the builder as
+      an action paradox.
+    reviewer_asks: "Does the strict rule define away the paradox for people who hold the principle weakly?"
+    considered_not_offered:
+      - "Endorsement only if justified with a reason (too few cases in small samples)"
+
+  - id: elections_endorsement
+    question: "When does a respondent count as endorsing elections?"
+    stage: coding
+    options:
+      named: "Elections named anywhere in module A"
+      justified: "Elections named with a reason in module A"
+    main: named
+    plausible: [justified]
+    background: >-
+      Nearly everyone names elections when defining democracy. Requiring a reason
+      separates a considered principle from a reflexive association.
+    reviewer_asks: "Is 'named' so inclusive that the action paradox becomes trivially common?"
+    considered_not_offered: []
+
+  - id: tradeoff_expectation
+    question: "What does the elections-vs-development trade-off add to expectations?"
+    stage: coding
+    options:
+      priority_only: "Only the option the respondent chose"
+      all_codes: "Every consideration mentioned in the answer"
+    main: priority_only
+    plausible: [all_codes]
+    background: >-
+      'Elections do not fill stomachs' mentions elections while rejecting them as
+      a priority. Coding all mentions would turn a rejected option into an expectation.
+    reviewer_asks: "Could mentioning the rejected option still signal that it matters to the person?"
+    considered_not_offered: []
+
+  - id: reality_aggregation
+    question: "How are mixed delivery verdicts combined (e.g. 'roads are better, jobs are hard to find')?"
+    stage: coding
+    options:
+      any_badly: "Any negative verdict wins"
+      majority: "Sum positive and negative verdicts; negative only if they outnumber positive ones"
+    main: any_badly
+    plausible: [majority]
+    background: >-
+      'Any badly wins' is sensitive to a single complaint; 'majority' can hide a
+      salient grievance behind routine praise.
+    reviewer_asks: "Negativity bias is a hypothesis of the project (H4). Does 'any badly' build it into the measurement?"
+    considered_not_offered:
+      - "Ask the respondent for a numeric rating instead (changes the instrument, not the analysis)"
+
+  - id: annotator
+    question: "Which annotator codes the answers?"
+    stage: coding
+    options:
+      dictionary: "Transparent keyword baseline"
+      llm: "Codebook-guided LLM annotation"
+    main: dictionary
+    plausible: [llm]
+    run_offline: false
+    background: >-
+      The keyword baseline is transparent but crude; the LLM reads meaning but must
+      be validated against human coders. The multiverse runs the LLM branch only
+      when a model is configured.
+    reviewer_asks: "Which annotator agrees better with trained human coders, and does that differ by topic?"
+    considered_not_offered: []

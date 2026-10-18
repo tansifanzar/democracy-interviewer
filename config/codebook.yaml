@@ -1,0 +1,89 @@
+# Codebook of "considerations" about democracy, used for ALL three layers
+# (concept, expectation/reality, behaviour) so that gaps between layers can be
+# measured consistently.
+#   type: abstract = principles, loosely following V-Dem's high-level principles
+#         tangible = everyday experiences and outcomes of politics
+# Keywords power the transparent offline baseline annotator; the LLM annotator
+# uses label + description. Country-specific vocabulary (e.g. hartal, panchayat)
+# lives in the context packs under config/contexts/, not here.
+categories:
+  elections:
+    label: Elections & voting
+    type: abstract
+    description: Free and fair elections, voting, choosing or removing the government.
+    keywords: [election, elected, "elect ", vote, voting, ballot, polls]
+  freedoms:
+    label: Freedoms & rights
+    type: abstract
+    description: Freedom of speech, press, assembly, protest; individual and civil rights.
+    keywords: [freedom, free speech, speak freely, say what, expression, press, newspaper, journalist, media, rights, protest, criticis]
+  checks:
+    label: Rule of law & checks
+    type: abstract
+    description: Courts, rule of law, constitution, parliament, opposition, accountability, limits on power.
+    keywords: [court, judge, judiciary, rule of law, accountab, checks, balance, constitution, parliament, opposition, limit, independent, abuse of power, abuses, term limit]
+  participation:
+    label: Participation
+    type: abstract
+    description: Citizens having a say and taking part beyond voting (community, referendums, civil society).
+    keywords: [participat, have a say, involved, our voice, people decide, citizens decide, community, referend, petition, assembl]
+  deliberation:
+    label: Deliberation & compromise
+    type: abstract
+    description: Discussion, listening to other sides, debate, compromise.
+    keywords: [discuss, debate, listen, compromise, dialogue, other side, disagree]
+  equality:
+    label: Equality & inclusion
+    type: abstract
+    description: Equal treatment, minorities, women, non-discrimination, equal voice for rich and poor.
+    keywords: [equal, minorit, women, discriminat, everyone the same, rich and poor, inclusion]
+  economy:
+    label: Economy & development
+    type: tangible
+    description: Jobs, prices, growth, poverty, infrastructure and development.
+    keywords: [econom, job, prices, inflation, develop, roads, bridge, growth, salary, poverty, afford, money]
+  corruption:
+    label: Corruption & honesty
+    type: tangible
+    description: Bribery, theft of public money, nepotism, self-enrichment of officials; honesty of officials.
+    keywords: [corrupt, bribe, steal, nepotism, their own pockets, enrich, honest]
+  order:
+    label: Order & stability
+    type: tangible
+    description: Stability, order, security, peace, absence of chaos and violence.
+    keywords: [stabil, law and order, public order, chaos, security, safe, peace, unrest, violence, strike]
+  services:
+    label: Public services
+    type: tangible
+    description: Health care, education, electricity, public administration working for people.
+    keywords: [hospital, school, health, education, services, electricity]
+  politicians:
+    label: Politicians & parties
+    type: tangible
+    description: Behaviour and performance of politicians, parties, the government of the day.
+    keywords: [politician, party, parties, leader, government, minister, elite]
+
+justification_markers: [because, since, so that, otherwise, that's why, the reason, which means, "if ", without]
+
+# Module A: is press freedom part of the concept? (concept_boundary)
+boundary_markers:
+  essential: ["no,", "no.", not a democracy, isn't a democracy, is not a democracy, not really a democracy, can't be a democracy, cannot be a democracy, wouldn't call it]
+  optional: ["yes,", "yes.", still a democracy, still democratic, elections are enough, enough if]
+
+# Module B: perceived delivery (reality), judged per clause
+valence_markers:
+  negative: [corrupt, bribe, pockets, rising, rarely, chaos, violence, unrest, bad, badly, poor, worse, "not ", "no ", nothing, can't, cannot, fail, weak, rigged, one-sided, problem, too high, very high, hard, difficult, worst, little]
+  positive: [fair, improving, good, well, better, improved, fine, working, great, strong, come far, progress]
+
+# Module C: behaviour in the two scenarios
+vote_choice:
+  builder: [the first, first one, first candidate, the builder, who brought, roads and bridges, the one who built, build]
+  honest: [the second, second one, second candidate, the honest, honest one, honest candidate]
+party_action:
+  withdraws: [would not vote, wouldn't vote, never vote, vote against, not vote for them, stop supporting, no longer support, would protest, i would protest, i'd protest, go to the streets, join the protest, take to the streets]
+  loyal: [vote for them again, still vote, keep supporting, stay with, still support, i would accept, i'd accept, accept it, do nothing, nothing, wait]
+
+# Bridge question: how the respondent responds when two layers conflict
+bridge_reaction:
+  revises: [you're right, i should reconsider, maybe i was wrong, changed my mind, on second thought, i would reconsider, contradiction]
+  rationalises: [but, still, anyway, exception, necessary, have to, in our country, realistic, practical, temporary]

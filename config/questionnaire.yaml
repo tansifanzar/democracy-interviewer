@@ -1,0 +1,104 @@
+# Semi-structured questionnaire on democracy, in three modules that follow the
+# project's three questions: how ordinary people CONCEPTUALISE democracy, what
+# they EXPECT from it (and whether it delivers), and how their attitudes
+# translate into BEHAVIOUR. Every module is coded with the same codebook, so
+# the gaps between modules can be measured - those gaps are the paradoxes.
+#
+# Main questions are asked verbatim. Two topics are "dynamic": the reality
+# check is written from the respondent's own expectations, and the bridge
+# question is asked only when a principle (module A) conflicts with a choice
+# (module C), and only in the randomised bridge arm.
+version: "0.2"
+max_followups_default: 1
+bridge_probability: 0.5   # share of interviews randomly assigned to the bridge arm
+
+intro: >-
+  Hello, and thank you for taking part. I am an AI interviewer for a research
+  study on how people think about democracy. There are no right or wrong
+  answers. I am interested in your own views, in your own words. You can skip
+  any question or stop at any time by typing "stop". Shall we begin?
+
+outro: >-
+  That was the last question. Thank you very much for sharing your thoughts.
+  They are valuable for our research. Have a good day!
+
+modules:
+  concept: "A · What democracy is"
+  expectation: "B · What democracy should deliver"
+  behaviour: "C · What people would do"
+
+topics:
+  # ---------------- Module A: how people conceptualise democracy ----------------
+  - id: concept_meaning
+    module: concept
+    max_followups: 2
+    goal: >-
+      Elicit the respondent's own conception of democracy. Probe for concrete
+      examples and for what they see as the core element.
+    question: "To start, in your own words: what does democracy mean to you?"
+
+  - id: concept_boundary
+    module: concept
+    goal: >-
+      Find the boundary of the respondent's concept: is a free press essential
+      or optional for a democracy? Probe for the reason.
+    question: "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?"
+
+  # ---------------- Module B: what people expect, and whether it delivers ----------------
+  - id: expect
+    module: expectation
+    goal: >-
+      Elicit normative expectations: what democracy should deliver for people
+      like the respondent. Probe for priorities.
+    question: "What should democracy deliver for people like you?"
+
+  - id: tradeoff
+    module: expectation
+    goal: >-
+      Reveal priorities through a trade-off between procedure and outcome.
+      Probe for the reason behind the choice.
+    question: "If you could only have one of the two, fair elections or fast development, which would you choose, and why?"
+
+  - id: reality
+    module: expectation
+    dynamic: reality
+    goal: >-
+      For the things this respondent expects, learn how well they think their
+      country delivers them today, with concrete examples.
+    question: "Thinking of what democracy should deliver: how well does your country do on those things today?"
+
+  # ---------------- Module C: how attitudes translate into behaviour ----------------
+  - id: vote_scenario
+    module: behaviour
+    goal: >-
+      Observe a revealed preference: would the respondent vote for a candidate
+      who delivers outcomes but violates press freedom? Probe for the reason.
+    question: "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?"
+
+  - id: party_scenario
+    module: behaviour
+    goal: >-
+      Test group-serving consistency: what would the respondent actually do if
+      their own party postponed an election?
+    question: "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?"
+
+  - id: past_behaviour
+    module: behaviour
+    max_followups: 0
+    goal: "Record past participation and the reason for it."
+    question: "Did you vote in the last national election? Why or why not?"
+
+  - id: bridge
+    module: behaviour
+    dynamic: bridge
+    max_followups: 0
+    goal: >-
+      Learn how the respondent relates a principle they named to a choice they
+      made: do they reconcile, rationalise, or revise?
+    question: ""
+
+  - id: closing
+    module: null
+    max_followups: 0
+    goal: "Give the respondent space to add anything important that was not covered."
+    question: "Is there anything else about democracy that you would like to add?"

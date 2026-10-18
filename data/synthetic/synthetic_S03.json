@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "respondent_id": "S03",
+    "language": "en",
+    "persona": "superficial supporter",
+    "synthetic": true,
+    "bridge_arm": true,
+    "context": null,
+    "questionnaire_version": "0.2",
+    "backend": "hand-written persona",
+    "model": null
+  },
+  "turns": [
+    {
+      "role": "interviewer",
+      "text": "Hello, and thank you for taking part. I am an AI interviewer for a research study on how people think about democracy. There are no right or wrong answers. I am interested in your own views, in your own words. You can skip any question or stop at any time by typing \"stop\". Shall we begin?",
+      "type": "intro",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, let's start.",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "To start, in your own words: what does democracy mean to you?",
+      "type": "main_question",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "Democracy is good. It means freedom.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "What does freedom mean to you here?",
+      "topic": "concept_meaning",
+      "module": "concept",
+      "type": "follow_up"
+    },
+    {
+      "role": "respondent",
+      "text": "That you are free, you can vote and say what you want.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Could you give me a concrete example?",
+      "topic": "concept_meaning",
+      "module": "concept",
+      "type": "follow_up"
+    },
+    {
+      "role": "respondent",
+      "text": "I don't know, like voting in elections.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?",
+      "type": "main_question",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "No, that is not a democracy. People need freedom of the press.",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "What should democracy deliver for people like you?",
+      "type": "main_question",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "A good life, I guess. Jobs and roads.",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "If you could only have one of the two, fair elections or fast development, which would you choose, and why?",
+      "type": "main_question",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Development, probably. That is what people need.",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "You mentioned a good life, jobs and roads. How well does your country do on these today?",
+      "type": "dynamic_question",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "It's okay. The roads are better now, but jobs are hard to find.",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?",
+      "type": "main_question",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "The first one, the builder. Roads are more useful.",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?",
+      "type": "main_question",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "I would accept it if it is for stability. That's fine.",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Did you vote in the last national election? Why or why not?",
+      "type": "main_question",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, I voted.",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Earlier you said a country is not a democracy without a free press, and in the voting example you chose the candidate who had journalists arrested. How do you see these two together?",
+      "type": "dynamic_question",
+      "topic": "bridge",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "Hmm, I didn't think of that. Maybe I would reconsider my vote, I'm not sure.",
+      "topic": "bridge",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Is there anything else about democracy that you would like to add?",
+      "type": "main_question",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "No.",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "That was the last question. Thank you very much for sharing your thoughts. They are valuable for our research. Have a good day!",
+      "type": "outro",
+      "topic": null,
+      "module": null
+    }
+  ]
+}

@@ -1,0 +1,1188 @@
+[
+  {
+    "meta": {
+      "respondent_id": "S01",
+      "language": "en",
+      "persona": "principled democrat",
+      "synthetic": true,
+      "bridge_arm": false,
+      "context": null,
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": null,
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "Democracy means people choose and can remove their government in free elections. But it also means courts are independent and the press can criticise those in power, because otherwise elections become a show.",
+        "codes": [
+          "elections",
+          "freedoms",
+          "checks",
+          "politicians"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 5,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "No, that is not a democracy. If newspapers cannot criticise the government, voters cannot know what they are choosing.",
+        "codes": [
+          "elections",
+          "freedoms",
+          "politicians"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 7,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Equal treatment for everyone, honest officials, and citizens who have a say in decisions.",
+        "codes": [
+          "participation",
+          "equality",
+          "corruption"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 9,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Having a say, because then people can fix the other problems themselves.",
+        "codes": [],
+        "justified": true
+      },
+      {
+        "idx": 11,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Fair elections. Development without accountability ends up in a few pockets.",
+        "codes": [
+          "elections",
+          "checks",
+          "economy"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 13,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "Elections work well and power changes hands peacefully. But corruption is still a problem, and citizens rarely have a say in decisions. Equal treatment is improving.",
+        "codes": [
+          "elections",
+          "participation",
+          "equality",
+          "corruption",
+          "order"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 15,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The honest one. Arresting journalists is a line I would not cross, even for new roads.",
+        "codes": [
+          "freedoms",
+          "economy",
+          "corruption"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I would not vote for them again. Postponing elections is how democracies end, whichever party does it.",
+        "codes": [
+          "elections",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 19,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "Yes, I always vote. It is the least a citizen can do.",
+        "codes": [
+          "elections"
+        ],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "elections": 2,
+        "freedoms": 3,
+        "checks": 2,
+        "politicians": 2
+      },
+      "expectation": {
+        "participation": 1,
+        "equality": 1,
+        "corruption": 1,
+        "elections": 2
+      },
+      "reality": {
+        "elections": 1,
+        "order": 1,
+        "participation": -1,
+        "corruption": -1,
+        "equality": 1
+      },
+      "acted": {
+        "freedoms": 1,
+        "corruption": 1,
+        "elections": 1
+      }
+    },
+    "boundary": "essential",
+    "priority": "elections",
+    "gaps": {
+      "participation": -1,
+      "equality": 1,
+      "corruption": -1,
+      "elections": 1
+    },
+    "behaviour": {
+      "vote": "honest",
+      "party": "withdraws",
+      "voted_last": "yes"
+    },
+    "bridge": null,
+    "tensions": [
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "participation",
+        "label": "participation expected but not delivered",
+        "explanation": "Expects participation from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "corruption",
+        "label": "corruption & honesty expected but not delivered",
+        "explanation": "Expects corruption & honesty from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "meta": {
+      "respondent_id": "S02",
+      "language": "en",
+      "persona": "dissatisfied, outcome-focused",
+      "synthetic": true,
+      "bridge_arm": false,
+      "context": null,
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": null,
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "Democracy is supposed to mean the government works for ordinary people.",
+        "codes": [
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 5,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "That people can afford food, that young people find jobs, and that hospitals actually work.",
+        "codes": [
+          "economy",
+          "services"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 7,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "Yes, I suppose so. If people can vote, it is a democracy, even if the newspapers are controlled.",
+        "codes": [
+          "elections",
+          "freedoms"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 9,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Jobs, fair prices and honest politicians who don't steal.",
+        "codes": [
+          "economy",
+          "corruption",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 11,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Fast development. Elections every five years change nothing in my life.",
+        "codes": [
+          "elections",
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 13,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "Badly. Prices keep rising and my son has no job. The politicians only fill their own pockets.",
+        "codes": [
+          "economy",
+          "corruption",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 15,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The first one. Roads help people; journalists do not feed my family.",
+        "codes": [
+          "freedoms",
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I don't really support any party. They are all the same.",
+        "codes": [
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 19,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "No. What is the point? Nothing changes.",
+        "codes": [],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "politicians": 1,
+        "economy": 1,
+        "services": 1,
+        "elections": 2,
+        "freedoms": 2
+      },
+      "expectation": {
+        "economy": 2,
+        "corruption": 1,
+        "politicians": 1
+      },
+      "reality": {
+        "economy": -1,
+        "corruption": -1,
+        "politicians": -1
+      },
+      "acted": {
+        "economy": 1,
+        "freedoms": -1
+      }
+    },
+    "boundary": "optional",
+    "priority": "economy",
+    "gaps": {
+      "economy": -1,
+      "corruption": -1,
+      "politicians": -1
+    },
+    "behaviour": {
+      "vote": "builder",
+      "party": "unclear",
+      "voted_last": "no"
+    },
+    "bridge": null,
+    "tensions": [
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "economy",
+        "label": "economy & development expected but not delivered",
+        "explanation": "Expects economy & development from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "corruption",
+        "label": "corruption & honesty expected but not delivered",
+        "explanation": "Expects corruption & honesty from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "politicians",
+        "label": "politicians & parties expected but not delivered",
+        "explanation": "Expects politicians & parties from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "meta": {
+      "respondent_id": "S03",
+      "language": "en",
+      "persona": "superficial supporter",
+      "synthetic": true,
+      "bridge_arm": true,
+      "context": null,
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": null,
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "Democracy is good. It means freedom.",
+        "codes": [
+          "freedoms"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 5,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "That you are free, you can vote and say what you want.",
+        "codes": [
+          "elections",
+          "freedoms"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 7,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "I don't know, like voting in elections.",
+        "codes": [
+          "elections"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 9,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "No, that is not a democracy. People need freedom of the press.",
+        "codes": [
+          "freedoms"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 11,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "A good life, I guess. Jobs and roads.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 13,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Development, probably. That is what people need.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 15,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "It's okay. The roads are better now, but jobs are hard to find.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The first one, the builder. Roads are more useful.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 19,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I would accept it if it is for stability. That's fine.",
+        "codes": [
+          "order"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 21,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "Yes, I voted.",
+        "codes": [
+          "elections"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 23,
+        "topic": "bridge",
+        "module": "behaviour",
+        "text": "Hmm, I didn't think of that. Maybe I would reconsider my vote, I'm not sure.",
+        "codes": [
+          "elections"
+        ],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "freedoms": 3,
+        "elections": 1
+      },
+      "expectation": {
+        "economy": 2
+      },
+      "reality": {
+        "economy": -1
+      },
+      "acted": {
+        "economy": 1,
+        "freedoms": -1,
+        "elections": -1,
+        "order": 1
+      }
+    },
+    "boundary": "essential",
+    "priority": "economy",
+    "gaps": {
+      "economy": -1
+    },
+    "behaviour": {
+      "vote": "builder",
+      "party": "loyal",
+      "voted_last": "yes"
+    },
+    "bridge": "revises",
+    "tensions": [
+      {
+        "kind": "action",
+        "between": [
+          "concept",
+          "behaviour"
+        ],
+        "category": "freedoms",
+        "label": "votes for the candidate who arrests journalists",
+        "explanation": "Sees press freedom as part of democracy, but would vote for the candidate who had journalists arrested."
+      },
+      {
+        "kind": "action",
+        "between": [
+          "concept",
+          "behaviour"
+        ],
+        "category": "elections",
+        "label": "stays loyal after a postponed election",
+        "explanation": "Names elections as part of democracy, but would stay with their party after it postponed an election."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "economy",
+        "label": "economy & development expected but not delivered",
+        "explanation": "Expects economy & development from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": [
+      {
+        "node": "votes for the candidate who arrests journalists",
+        "principles": [
+          "freedoms"
+        ]
+      },
+      {
+        "node": "stays loyal after a postponed election",
+        "principles": [
+          "elections"
+        ]
+      }
+    ]
+  },
+  {
+    "meta": {
+      "respondent_id": "S04",
+      "language": "en",
+      "persona": "partisan, group-serving (Bangladesh)",
+      "synthetic": true,
+      "bridge_arm": true,
+      "context": "bangladesh",
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": "bangladesh",
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "Democracy means the people choose the government with their vote, and people have the freedom to speak.",
+        "codes": [
+          "elections",
+          "freedoms",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 5,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "I mean fair elections, and the party that wins runs the country. The opposition can also say what it wants.",
+        "codes": [
+          "elections",
+          "freedoms",
+          "checks",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 7,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "No, without a free press it is not a real democracy. Under the previous government the newspapers were afraid.",
+        "codes": [
+          "freedoms",
+          "politicians"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 9,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Development, jobs for young people, and an end to hartals and chaos.",
+        "codes": [
+          "economy",
+          "order"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 11,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Both matter, but if I must choose, fair elections, because through the vote the people own the country.",
+        "codes": [
+          "elections"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 13,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "Development is going well: the Padma Bridge, the metro rail, new roads. But jobs are hard to find, and the opposition still calls hartals that create chaos.",
+        "codes": [
+          "checks",
+          "economy",
+          "order"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 15,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The first one. He built the roads and bridges; those journalists were spreading lies anyway.",
+        "codes": [
+          "freedoms",
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I would still vote for them. My party wants the best for the country, and stability comes first.",
+        "codes": [
+          "elections",
+          "order",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 19,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "Yes, I voted, for my party of course.",
+        "codes": [
+          "elections",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 21,
+        "topic": "bridge",
+        "module": "behaviour",
+        "text": "But that is different. In our country some newspapers spread propaganda, so it is necessary to control them for stability.",
+        "codes": [
+          "freedoms",
+          "order"
+        ],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "elections": 1,
+        "freedoms": 3,
+        "politicians": 2,
+        "checks": 1
+      },
+      "expectation": {
+        "economy": 1,
+        "order": 1,
+        "elections": 2
+      },
+      "reality": {
+        "economy": -1,
+        "checks": -1,
+        "order": -1
+      },
+      "acted": {
+        "economy": 1,
+        "freedoms": -1,
+        "elections": -1,
+        "order": 1
+      }
+    },
+    "boundary": "essential",
+    "priority": "elections",
+    "gaps": {
+      "economy": -1,
+      "order": -1,
+      "elections": 0
+    },
+    "behaviour": {
+      "vote": "builder",
+      "party": "loyal",
+      "voted_last": "yes"
+    },
+    "bridge": "rationalises",
+    "tensions": [
+      {
+        "kind": "action",
+        "between": [
+          "concept",
+          "behaviour"
+        ],
+        "category": "freedoms",
+        "label": "votes for the candidate who arrests journalists",
+        "explanation": "Sees press freedom as part of democracy, but would vote for the candidate who had journalists arrested."
+      },
+      {
+        "kind": "action",
+        "between": [
+          "concept",
+          "behaviour"
+        ],
+        "category": "elections",
+        "label": "stays loyal after a postponed election",
+        "explanation": "Names elections as part of democracy, but would stay with their party after it postponed an election."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "economy",
+        "label": "economy & development expected but not delivered",
+        "explanation": "Expects economy & development from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "order",
+        "label": "order & stability expected but not delivered",
+        "explanation": "Expects order & stability from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": [
+      {
+        "node": "votes for the candidate who arrests journalists",
+        "principles": [
+          "freedoms"
+        ]
+      },
+      {
+        "node": "stays loyal after a postponed election",
+        "principles": [
+          "elections"
+        ]
+      }
+    ]
+  },
+  {
+    "meta": {
+      "respondent_id": "S05",
+      "language": "en",
+      "persona": "development first (Bangladesh)",
+      "synthetic": true,
+      "bridge_arm": false,
+      "context": "bangladesh",
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": "bangladesh",
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "To me democracy means the development of the country and a better life for people.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 5,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "Because for ordinary people, jobs, the price of rice and onions, and safety matter most.",
+        "codes": [
+          "economy",
+          "order"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 7,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "Yes, if the government delivers development, people will accept it. Newspapers matter less than rice.",
+        "codes": [
+          "freedoms",
+          "economy",
+          "politicians"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 9,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Good hospitals, good schools, electricity without load-shedding, and no corruption.",
+        "codes": [
+          "corruption",
+          "services"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 11,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Fast development, without a doubt. Elections do not fill stomachs.",
+        "codes": [
+          "elections",
+          "economy"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 13,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "Electricity has improved and there are new bridges. But nothing moves in a government office without a bribe, and hospitals are in bad shape.",
+        "codes": [
+          "economy",
+          "corruption",
+          "services",
+          "politicians"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 15,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The first one. Roads and bridges are what people remember.",
+        "codes": [
+          "economy"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I would wait and see. If they keep developing the country, I can accept it.",
+        "codes": [
+          "economy"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 19,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "Yes, I voted.",
+        "codes": [
+          "elections"
+        ],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "economy": 2,
+        "order": 2,
+        "freedoms": 2,
+        "politicians": 2
+      },
+      "expectation": {
+        "corruption": 1,
+        "services": 1,
+        "economy": 2
+      },
+      "reality": {
+        "economy": 1,
+        "services": -1,
+        "corruption": -1,
+        "politicians": -1
+      },
+      "acted": {
+        "economy": 1,
+        "freedoms": -1,
+        "elections": -1,
+        "order": 1
+      }
+    },
+    "boundary": "optional",
+    "priority": "economy",
+    "gaps": {
+      "corruption": -1,
+      "services": -1,
+      "economy": 1
+    },
+    "behaviour": {
+      "vote": "builder",
+      "party": "loyal",
+      "voted_last": "yes"
+    },
+    "bridge": null,
+    "tensions": [
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "corruption",
+        "label": "corruption & honesty expected but not delivered",
+        "explanation": "Expects corruption & honesty from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "services",
+        "label": "public services expected but not delivered",
+        "explanation": "Expects public services from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "meta": {
+      "respondent_id": "S06",
+      "language": "en",
+      "persona": "participatory, deliberative",
+      "synthetic": true,
+      "bridge_arm": false,
+      "context": null,
+      "questionnaire_version": "0.2",
+      "backend": "hand-written persona",
+      "model": null
+    },
+    "method": "dictionary-baseline",
+    "spec": {
+      "sample": "keep_all",
+      "freedoms_endorsement": "strict",
+      "elections_endorsement": "named",
+      "tradeoff_expectation": "priority_only",
+      "reality_aggregation": "any_badly",
+      "annotator": "dictionary"
+    },
+    "context": null,
+    "turns": [
+      {
+        "idx": 3,
+        "topic": "concept_meaning",
+        "module": "concept",
+        "text": "To me democracy is about people having a say in the decisions that affect them, not only on election day: community meetings, petitions, citizens' assemblies.",
+        "codes": [
+          "elections",
+          "participation"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 5,
+        "topic": "concept_boundary",
+        "module": "concept",
+        "text": "No. Without a free press citizens cannot debate or hold anyone to account, so it is not a democracy.",
+        "codes": [
+          "freedoms",
+          "deliberation"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 7,
+        "topic": "expect",
+        "module": "expectation",
+        "text": "Real participation, space for debate where people listen to each other, and an equal voice for rich and poor.",
+        "codes": [
+          "participation",
+          "deliberation",
+          "equality"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 9,
+        "topic": "tradeoff",
+        "module": "expectation",
+        "text": "Fair elections, but only as a start. Development decided without the people rarely serves them.",
+        "codes": [
+          "elections",
+          "economy"
+        ],
+        "justified": true
+      },
+      {
+        "idx": 11,
+        "topic": "reality",
+        "module": "expectation",
+        "text": "Elections are fair, but people rarely have a say in local decisions, and rich and poor are not heard equally.",
+        "codes": [
+          "elections",
+          "participation",
+          "equality"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 13,
+        "topic": "vote_scenario",
+        "module": "behaviour",
+        "text": "The honest one. A leader who arrests journalists will not listen to anyone else either.",
+        "codes": [
+          "freedoms",
+          "deliberation",
+          "corruption",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 15,
+        "topic": "party_scenario",
+        "module": "behaviour",
+        "text": "I would protest, even against my own party. Stability bought by silencing voters just postpones the conflict.",
+        "codes": [
+          "elections",
+          "freedoms",
+          "order",
+          "politicians"
+        ],
+        "justified": false
+      },
+      {
+        "idx": 17,
+        "topic": "past_behaviour",
+        "module": "behaviour",
+        "text": "Yes, and I volunteered as a polling agent.",
+        "codes": [],
+        "justified": false
+      }
+    ],
+    "layers": {
+      "concept": {
+        "elections": 1,
+        "participation": 1,
+        "freedoms": 3,
+        "deliberation": 2
+      },
+      "expectation": {
+        "participation": 1,
+        "deliberation": 1,
+        "equality": 1,
+        "elections": 2
+      },
+      "reality": {
+        "elections": 1,
+        "participation": -1,
+        "equality": -1
+      },
+      "acted": {
+        "freedoms": 1,
+        "corruption": 1,
+        "elections": 1
+      }
+    },
+    "boundary": "essential",
+    "priority": "elections",
+    "gaps": {
+      "participation": -1,
+      "deliberation": 0,
+      "equality": -1,
+      "elections": 1
+    },
+    "behaviour": {
+      "vote": "honest",
+      "party": "withdraws",
+      "voted_last": "yes"
+    },
+    "bridge": null,
+    "tensions": [
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "participation",
+        "label": "participation expected but not delivered",
+        "explanation": "Expects participation from democracy, but sees it badly delivered."
+      },
+      {
+        "kind": "dissatisfaction",
+        "between": [
+          "expectation",
+          "reality"
+        ],
+        "category": "equality",
+        "label": "equality & inclusion expected but not delivered",
+        "explanation": "Expects equality & inclusion from democracy, but sees it badly delivered."
+      }
+    ],
+    "contradictions": []
+  }
+]

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Context Lens</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: pick a society, then see the same instrument through its context pack: wording, vocabulary, conduct, interpretation. */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --surface-2: #eef1f5; --ink: #1a1e26; --muted: #5a6371; --faint: #8f98a6; --line: #dbe0e7;
+  --accent: #0e6b5a; --accent-ink: #ffffff; --accent-soft: #dff0eb; --mark: #fde7c8; --mark-ink: #6b3d00;
+  --base-mark: #e4e8ee; --ins: #dff0eb; --del: #f6dede; --push: #b3261e;
+  --f-display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111318; --surface: #191c22; --surface-2: #20242c; --ink: #edf0f4; --muted: #a2aab7; --faint: #6f7785; --line: #2c313b;
+  --accent: #43b89e; --accent-ink: #0c1a17; --accent-soft: #17302a; --mark: #4a3413; --mark-ink: #f6d9a8;
+  --base-mark: #2c323c; --ins: #17302a; --del: #3a1f22; --push: #f2a29c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c22; --surface-2: #20242c; --ink: #edf0f4; --muted: #a2aab7; --faint: #6f7785; --line: #2c313b;
+  --accent: #43b89e; --accent-ink: #0c1a17; --accent-soft: #17302a; --mark: #4a3413; --mark-ink: #f6d9a8;
+  --base-mark: #2c323c; --ins: #17302a; --del: #3a1f22; --push: #f2a29c; color-scheme: dark }
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px }
+.wrap { max-width: 1200px; margin: 0 auto; display: grid; gap: 16px }
+header { display: grid; gap: 8px }
+.eyebrow, .step { font: 500 11.5px var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+h1 { font: 700 clamp(28px, 4.4vw, 42px)/1.05 var(--f-display); margin: 0; letter-spacing: -0.015em }
+h2 { font: 600 19px/1.2 var(--f-display); margin: 0 }
+h3 { font: 600 14.5px/1.3 var(--f-display); margin: 0 }
+.lede { margin: 0; color: var(--muted); max-width: 82ch }
+.flag { font: 500 12px var(--f-mono); background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); padding: 3px 8px; border-radius: 6px; width: fit-content }
+.picker { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.picker button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 8px 16px; font: 600 15px var(--f-display); cursor: pointer }
+.picker button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink) }
+.picker span { font-size: 13px; color: var(--muted) }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; align-content: start }
+.hint { margin: 0; color: var(--muted); font-size: 13px; max-width: 86ch }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr } }
+.box { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 8px; min-width: 0; align-content: start }
+.box .k { font: 500 11px var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em }
+.q { font-size: 14.5px; line-height: 1.6 }
+.ins { background: var(--ins); border-radius: 3px; padding: 0 2px }
+.del { background: var(--del); border-radius: 3px; padding: 0 2px; text-decoration: line-through; text-decoration-color: var(--faint) }
+.construct { font-size: 13px; color: var(--muted) }
+.construct b { color: var(--ink); font-weight: 600 }
+.gloss { display: flex; flex-wrap: wrap; gap: 6px }
+.gloss span { font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; background: var(--surface) }
+.gloss span b { font-weight: 600 }
+.gloss span i { font-style: normal; color: var(--muted) }
+.samples { display: flex; flex-wrap: wrap; gap: 6px }
+.samples button { border: 1px dashed var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 4px 10px; font: 12.5px var(--f-body); cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.samples button[aria-pressed="true"] { border-style: solid; color: var(--ink); border-color: var(--ink) }
+textarea { width: 100%; resize: vertical; border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; font: inherit; background: var(--bg); color: var(--ink); min-height: 64px }
+.marked { font-size: 14.5px; line-height: 1.7 }
+mark { background: var(--mark); color: var(--mark-ink); border-radius: 3px; padding: 0 2px }
+.bm { background: var(--base-mark); border-radius: 3px; padding: 0 2px }
+.codes { display: flex; flex-wrap: wrap; gap: 6px; min-height: 26px }
+.code { font: 500 12.5px var(--f-body); padding: 2px 9px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line) }
+.code.new { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.none { font-size: 13px; color: var(--faint) }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line) }
+th { font: 500 11px var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em }
+td.num { text-align: right } th.num { text-align: right }
+tr.cur td { background: var(--surface-2) }
+.bar { display: inline-block; height: 8px; border-radius: 4px; background: var(--accent); vertical-align: middle; margin-left: 6px }
+.bar.off { background: var(--faint) }
+.chat { display: grid; gap: 8px }
+.msg { padding: 8px 11px; border-radius: 11px; font-size: 14px; max-width: 92%; overflow-wrap: anywhere }
+.msg.ai { background: var(--surface-2); justify-self: start; border-bottom-left-radius: 3px }
+.msg.me { background: var(--accent); color: var(--accent-ink); justify-self: end; border-bottom-right-radius: 3px }
+.msg .tag { display: block; font: 500 10.5px var(--f-mono); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; color: var(--muted) }
+.msg.bad .tag { color: var(--push) }
+.verdict { font-size: 13px; color: var(--muted) }
+.verdict b { color: var(--ink) }
+.notes { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; font-size: 13.5px }
+.notes b { font-weight: 600 }
+ul.guard { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px }
+.lit { font-size: 12.5px; color: var(--muted) }
+.scroll-x { overflow-x: auto; min-width: 0 }
+.methods { color: var(--muted); font-size: 13px; max-width: 100ch; display: grid; gap: 6px }
+.methods p { margin: 0 } .methods b { color: var(--ink); font-weight: 600 }
+button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">democracy-interviewer · context packs</span>
+    <h1>Context Lens</h1>
+    <p class="lede">People in Bangladesh, India and Germany talk about democracy in different words, worry about different risks when they answer, and can mean different things by the same answer. A context pack lets one instrument travel without importing one society's assumptions into another. The construct each question measures stays fixed; the wording, the vocabulary the coder recognises, the agents' conduct and the guardrails for interpretation adapt. Every country gets a pack, Germany included, so no society is the default.</p>
+    <div class="picker" role="group" aria-label="Choose a context"><span>Context:</span></div>
+    <span class="flag">Packs are drafts to be reviewed by local experts and pre-tested; example answers are synthetic.</span>
+  </header>
+
+  <section class="panel" aria-labelledby="h1s">
+    <span class="step">1 · Wording</span>
+    <h2 id="h1s">Same construct, local wording</h2>
+    <p class="hint">The behaviour scenarios are rewritten so they sound like real local politics. Green marks local wording, struck-through text is the generic version it replaces. What the question measures does not change.</p>
+    <div class="two" id="vignettes"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h2s">
+    <span class="step">2 · Vocabulary</span>
+    <h2 id="h2s">The coder learns local political vocabulary</h2>
+    <p class="hint">Local terms are mapped to the shared codebook, so a <i>hartal</i> in Dhaka and a <i>bandh</i> in Mumbai are both coded as order, and a <i>caretaker government</i> as elections. Pick an example or type your own answer.</p>
+    <div class="gloss" id="gloss"></div>
+    <div class="samples" id="samples" role="group" aria-label="Example answers"></div>
+    <textarea id="answer" aria-label="An answer to code"></textarea>
+    <div class="marked" id="marked"></div>
+    <div class="two">
+      <div class="box"><span class="k">Without the context pack</span><div class="codes" id="cWithout"></div></div>
+      <div class="box"><span class="k">With the context pack</span><div class="codes" id="cWith"></div></div>
+    </div>
+    <h3>How much does it matter?</h3>
+    <div class="scroll-x"><table id="eval"></table></div>
+    <p class="hint"><b>Caveat:</b> this check is in-sample. The glossary and the test answers were written together, so the "with" column shows the mechanism, not real-world accuracy. The real test is held-out answers coded by independent native coders.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="h3s">
+    <span class="step">3 · Conduct</span>
+    <h2 id="h3s">When a question feels risky to answer</h2>
+    <p class="hint">On sensitive topics, a refusal can signal perceived risk rather than a lack of opinion. Without a pack, a probe agent sees a short answer and pushes. With the pack, it reassures and moves on, and the refusal is recorded as its own outcome.</p>
+    <div class="two" id="chats"></div>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h4s">
+    <span class="step">4 · Interpretation</span>
+    <h2 id="h4s">Guardrails for analysis and write-up</h2>
+    <p class="hint">The same answer can mean different things in different places. These notes travel with the data, so that a reading from one society is not applied to another.</p>
+    <ul class="guard" id="guard"></ul>
+    <div class="lit" id="lit"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h5s">
+    <span class="step">5 · Where it plugs in</span>
+    <h2 id="h5s">Which agent uses which part of the pack</h2>
+    <div class="scroll-x"><table>
+      <thead><tr><th>Pack field</th><th>Used by</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>vignettes</td><td>Script</td><td>Locally meaningful scenarios; the construct is unchanged</td></tr>
+        <tr><td>glossary</td><td>Coder (keyword and LLM)</td><td>Local terms are mapped to the shared codebook</td></tr>
+        <tr><td>sensitive topics, discomfort markers, reassurance</td><td>Engine, probe agent</td><td>Refusals are respected without probing and recorded</td></tr>
+        <tr><td>notes for agents, probing style</td><td>Probe, interviewer and bridge agents</td><td>Added to their prompts: never ask for or name a party; probe indirect answers gently</td></tr>
+        <tr><td>interpretation guardrails</td><td>Analysis, write-up</td><td>Prevents reading one society's answers through another's lens</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="methods">
+    <p><b>In the repo.</b> <code>config/contexts/*.yaml</code> holds the packs; <code>InterviewSession(context="bangladesh")</code> and <code>python -m interviewer.cli --context india</code> run a localised interview; <code>annotate_transcript(..., context=...)</code> codes with local vocabulary; <code>python -m analysis.context_eval</code> runs the check above. Drafted by Tansif Anzar as a starting point for review by country experts.</p>
+  </section>
+</div>
+
+<script>
+const D = {"codebook": {"categories": {"elections": {"label": "Elections & voting", "type": "abstract", "description": "Free and fair elections, voting, choosing or removing the government.", "keywords": ["election", "elected", "elect ", "vote", "voting", "ballot", "polls"]}, "freedoms": {"label": "Freedoms & rights", "type": "abstract", "description": "Freedom of speech, press, assembly, protest; individual and civil rights.", "keywords": ["freedom", "free speech", "speak freely", "say what", "expression", "press", "newspaper", "journalist", "media", "rights", "protest", "criticis"]}, "checks": {"label": "Rule of law & checks", "type": "abstract", "description": "Courts, rule of law, constitution, parliament, opposition, accountability, limits on power.", "keywords": ["court", "judge", "judiciary", "rule of law", "accountab", "checks", "balance", "constitution", "parliament", "opposition", "limit", "independent", "abuse of power", "abuses", "term limit"]}, "participation": {"label": "Participation", "type": "abstract", "description": "Citizens having a say and taking part beyond voting (community, referendums, civil society).", "keywords": ["participat", "have a say", "involved", "our voice", "people decide", "citizens decide", "community", "referend", "petition", "assembl"]}, "deliberation": {"label": "Deliberation & compromise", "type": "abstract", "description": "Discussion, listening to other sides, debate, compromise.", "keywords": ["discuss", "debate", "listen", "compromise", "dialogue", "other side", "disagree"]}, "equality": {"label": "Equality & inclusion", "type": "abstract", "description": "Equal treatment, minorities, women, non-discrimination, equal voice for rich and poor.", "keywords": ["equal", "minorit", "women", "discriminat", "everyone the same", "rich and poor", "inclusion"]}, "economy": {"label": "Economy & development", "type": "tangible", "description": "Jobs, prices, growth, poverty, infrastructure and development.", "keywords": ["econom", "job", "prices", "inflation", "develop", "roads", "bridge", "growth", "salary", "poverty", "afford", "money"]}, "corruption": {"label": "Corruption & honesty", "type": "tangible", "description": "Bribery, theft of public money, nepotism, self-enrichment of officials; honesty of officials.", "keywords": ["corrupt", "bribe", "steal", "nepotism", "their own pockets", "enrich", "honest"]}, "order": {"label": "Order & stability", "type": "tangible", "description": "Stability, order, security, peace, absence of chaos and violence.", "keywords": ["stabil", "law and order", "public order", "chaos", "security", "safe", "peace", "unrest", "violence", "strike"]}, "services": {"label": "Public services", "type": "tangible", "description": "Health care, education, electricity, public administration working for people.", "keywords": ["hospital", "school", "health", "education", "services", "electricity"]}, "politicians": {"label": "Politicians & parties", "type": "tangible", "description": "Behaviour and performance of politicians, parties, the government of the day.", "keywords": ["politician", "party", "parties", "leader", "government", "minister", "elite"]}}, "justification_markers": ["because", "since", "so that", "otherwise", "that's why", "the reason", "which means", "if ", "without"], "boundary_markers": {"essential": ["no,", "no.", "not a democracy", "isn't a democracy", "is not a democracy", "not really a democracy", "can't be a democracy", "cannot be a democracy", "wouldn't call it"], "optional": ["yes,", "yes.", "still a democracy", "still democratic", "elections are enough", "enough if"]}, "valence_markers": {"negative": ["corrupt", "bribe", "pockets", "rising", "rarely", "chaos", "violence", "unrest", "bad", "badly", "poor", "worse", "not ", "no ", "nothing", "can't", "cannot", "fail", "weak", "rigged", "one-sided", "problem", "too high", "very high", "hard", "difficult", "worst", "little"], "positive": ["fair", "improving", "good", "well", "better", "improved", "fine", "working", "great", "strong", "come far", "progress"]}, "vote_choice": {"builder": ["the first", "first one", "first candidate", "the builder", "who brought", "roads and bridges", "the one who built", "build"], "honest": ["the second", "second one", "second candidate", "the honest", "honest one", "honest candidate"]}, "party_action": {"withdraws": ["would not vote", "wouldn't vote", "never vote", "vote against", "not vote for them", "stop supporting", "no longer support", "would protest", "i would protest", "i'd protest", "go to the streets", "join the protest", "take to the streets"], "loyal": ["vote for them again", "still vote", "keep supporting", "stay with", "still support", "i would accept", "i'd accept", "accept it", "do nothing", "nothing", "wait"]}, "bridge_reaction": {"revises": ["you're right", "i should reconsider", "maybe i was wrong", "changed my mind", "on second thought", "i would reconsider", "contradiction"], "rationalises": ["but", "still", "anyway", "exception", "necessary", "have to", "in our country", "realistic", "practical", "temporary"]}}, "contexts": {"bangladesh": {"id": "bangladesh", "name": "Bangladesh", "notes_for_agents": "Respondents may be cautious about criticising the government or naming a party, especially after periods of political tension. Never ask which party someone supports, never name parties or leaders yourself, and accept a refusal without asking why. Development, stability and corruption are everyday political topics, not signs of being \"less democratic\".", "vignettes": {"vote_scenario": "Imagine two candidates in your constituency. One brought a new bridge and roads to your area but had local journalists arrested. The other is honest but achieved little. Who would get your vote, and why?", "party_scenario": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, join a protest, or something else?"}, "glossary": {"hartal": "order", "blockade": "order", "caretaker government": "elections", "one-sided election": "elections", "vote rigging": "elections", "ballot stuffing": "elections", "election commission": "elections", "load-shedding": "services", "union parishad": "participation", "upazila": "participation", "tender": "corruption", "extortion": "corruption", "facebook post": "freedoms", "padma bridge": "economy", "metro rail": "economy", "rice": "economy", "onion": "economy"}, "sensitive_topics": ["party_scenario", "past_behaviour"], "discomfort_markers": ["prefer not", "rather not", "don't want to say", "do not want to say", "can't say", "cannot say", "not safe", "risky", "dangerous to say"], "reassurance": "That is completely fine. You do not have to answer anything you are not comfortable with, and your answers are anonymous. Let's move on.", "probing_style": "Answers such as \"it depends\" or \"everyone knows how it is\" can be a polite, indirect way of answering. Probe gently with a concrete everyday example rather than repeating \"why\".", "interpretation_guardrails": ["Naming development or stability as part of democracy reflects a substantive understanding of democracy that is widespread in many societies (Shin 2017); on its own it is not an anti-democratic attitude.", "Low trust in elections may reflect lived experience of contested elections, not a weak commitment to elections as a principle. Code the evaluation (reality) separately from the principle (concept).", "Silence or refusal on party questions can signal perceived risk rather than lack of opinion; treat it as its own category, not as missing at random."], "literature": ["Shin, D. C. (2017). Popular understanding of democracy. Oxford Research Encyclopedia of Politics.", "Kirsch, H., & Welzel, C. (2018). Democracy misunderstood: Authoritarian notions of democracy around the globe. Social Forces."]}, "germany": {"id": "germany", "name": "Germany", "notes_for_agents": "Respondents may be reluctant to state support for parties seen as extreme; never ask which party someone supports and never name parties yourself. Dissatisfaction with politicians is common and should not be read as rejection of democracy as a principle.", "vignettes": {"vote_scenario": "Imagine two candidates in your constituency. One got new housing built and cut bureaucracy but had journalists' phones monitored. The other is honest but achieved little. Who would get your vote, and why?", "party_scenario": "Imagine the party you support postponed the next federal election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?"}, "glossary": {"bundestag": "checks", "constitutional court": "checks", "verfassungsgericht": "checks", "housing": "economy", "rent": "economy", "bureaucracy": "services", "public broadcaster": "freedoms", "politikverdrossenheit": "politicians"}, "sensitive_topics": ["party_scenario"], "discomfort_markers": ["prefer not", "rather not", "don't want to say", "do not want to say", "none of your business"], "reassurance": "That is completely fine. You do not have to answer anything you are not comfortable with, and your answers are anonymous. Let's move on.", "probing_style": "Respondents often answer in abstract institutional terms; ask for a concrete example from their own experience.", "interpretation_guardrails": ["High dissatisfaction alongside high support for democracy is the classic 'critical citizen' pattern (Norris 2011); separate evaluation from principle.", "Abstract institutional vocabulary is not by itself a sign of sophistication; check for reasons and consistency."], "literature": ["Norris, P. (2011). Democratic deficit: Critical citizens revisited. Cambridge University Press."]}, "india": {"id": "india", "name": "India", "notes_for_agents": "Political identity in India is often bound up with caste, religion, region and language. Never ask about these unless the respondent raises them, never name parties or leaders yourself, and accept a refusal without asking why. Welfare schemes and local self-government are central to how many citizens experience democracy.", "vignettes": {"vote_scenario": "Imagine two candidates in your constituency. One brought roads, electricity and new welfare schemes to your area but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?", "party_scenario": "Imagine the party you support postponed the next general election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?"}, "glossary": {"panchayat": "participation", "gram sabha": "participation", "evm": "elections", "election commission": "elections", "vote bank": "politicians", "bandh": "order", "welfare scheme": "services", "ration": "services", "caste": "equality", "reservation": "equality", "communal": "equality", "bribe": "corruption"}, "sensitive_topics": ["party_scenario", "past_behaviour"], "discomfort_markers": ["prefer not", "rather not", "don't want to say", "do not want to say", "can't say", "cannot say", "not safe", "risky"], "reassurance": "That is completely fine. You do not have to answer anything you are not comfortable with, and your answers are anonymous. Let's move on.", "probing_style": "Respondents may answer through their community or locality (\"in our village\", \"people like us\"). Treat this as a substantive answer and ask for an example, not for a personal opinion they did not offer.", "interpretation_guardrails": ["Equality and dignity (e.g. caste and reservation) can be central to the meaning of democracy; code them as equality, not as off-topic.", "Welfare delivery is a common lens on democratic performance, and egalitarian understandings of democracy are well documented in Asian publics (e.g. Fossati & Martinez i Coma 2023 for Southeast Asia); do not treat it as purely clientelist.", "Group-based answers ('people like us') are not low effort; assess elaboration by content, not by first-person phrasing."], "literature": ["Fossati, D., & Martinez i Coma, F. (2023). The meaning of democracy in Southeast Asia: Liberalism, egalitarianism and participation. Cambridge University Press.", "Shin, D. C. (2017). Popular understanding of democracy. Oxford Research Encyclopedia of Politics."]}}, "base": {"concept_meaning": "To start, in your own words: what does democracy mean to you?", "concept_boundary": "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?", "expect": "What should democracy deliver for people like you?", "tradeoff": "If you could only have one of the two, fair elections or fast development, which would you choose, and why?", "reality": "Thinking of what democracy should deliver: how well does your country do on those things today?", "vote_scenario": "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?", "party_scenario": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?", "past_behaviour": "Did you vote in the last national election? Why or why not?", "bridge": "", "closing": "Is there anything else about democracy that you would like to add?"}, "eval": {"bangladesh": [{"text": "Every few months there is a hartal and the whole city stops.", "gold": ["order"]}, {"text": "Without a caretaker government nobody trusts the result.", "gold": ["elections"]}, {"text": "It was a one-sided election, so what is the point of voting?", "gold": ["elections"]}, {"text": "Load-shedding in summer makes life unbearable.", "gold": ["services"]}, {"text": "Whoever controls the tender gets rich, and the roads fall apart in a year.", "gold": ["corruption", "economy"]}, {"text": "A boy in my area was arrested for a Facebook post criticising the minister.", "gold": ["freedoms", "politicians"]}, {"text": "Our union parishad chairman never asks the people anything.", "gold": ["participation"]}, {"text": "The Padma Bridge shows what development can do.", "gold": ["economy"]}, {"text": "Shop owners pay extortion to local leaders every month.", "gold": ["corruption", "politicians"]}, {"text": "People are afraid of the blockade and the violence around elections.", "gold": ["order", "elections"]}], "india": [{"text": "The gram sabha in our village decides how the money is spent.", "gold": ["participation"]}, {"text": "They only care about their vote bank before elections.", "gold": ["politicians", "elections"]}, {"text": "My family gets ration through the welfare scheme.", "gold": ["services"]}, {"text": "Reservation gave my community a chance for the first time.", "gold": ["equality"]}, {"text": "People question the EVMs, but I trust the Election Commission.", "gold": ["elections"]}, {"text": "Another bandh, so the shops are closed again.", "gold": ["order"]}, {"text": "Caste still decides who gets heard in the panchayat.", "gold": ["equality", "participation"]}, {"text": "Nothing happens in the office without a bribe.", "gold": ["corruption"]}], "germany": [{"text": "The Bundestag argues while rent keeps going up.", "gold": ["checks", "economy"]}, {"text": "Thank God the constitutional court stops the worst ideas.", "gold": ["checks"]}, {"text": "Getting an appointment at the office is pure bureaucracy.", "gold": ["services"]}, {"text": "The public broadcaster must stay independent of the government.", "gold": ["freedoms", "politicians"]}, {"text": "Housing is the biggest problem for young families here.", "gold": ["economy"]}, {"text": "Politikverdrossenheit is everywhere; people think politicians don't care.", "gold": ["politicians"]}]}, "evalRes": {"bangladesh": {"n": 10, "without": {"precision": 0.8888888888888888, "recall": 0.5714285714285714}, "with": {"precision": 0.9333333333333333, "recall": 1.0}}, "india": {"n": 8, "without": {"precision": 0.6, "recall": 0.3}, "with": {"precision": 0.8333333333333334, "recall": 1.0}}, "germany": {"n": 6, "without": {"precision": 0.75, "recall": 0.375}, "with": {"precision": 0.8888888888888888, "recall": 1.0}}}};
+const CATS = D.codebook.categories, CK = Object.keys(CATS), NAMES = { bangladesh: "Bangladesh", india: "India", germany: "Germany" };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const rx = (kw) => new RegExp("(?<![a-z])" + esc(kw.toLowerCase()), "g");
+const lab = (c) => CATS[c].label;
+let ctx = "bangladesh", sampleIdx = 0;
+
+function glossaryBy(ctxId) { const g = {}; for (const [t, c] of Object.entries(D.contexts[ctxId].glossary)) (g[c] = g[c] || []).push(t); return g; }
+function codes(text, ctxId) { const g = ctxId ? glossaryBy(ctxId) : {}, t = text.toLowerCase(); return CK.filter((c) => CATS[c].keywords.concat(g[c] || []).some((k) => rx(k).test(t))); }
+
+// word diff (LCS) between the generic and the localised question
+function diff(a, b) {
+  const A = a.split(/\s+/), B = b.split(/\s+/), n = A.length, m = B.length, L = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) L[i][j] = A[i].toLowerCase() === B[j].toLowerCase() ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const out = []; let i = 0, j = 0;
+  while (i < n && j < m) { if (A[i].toLowerCase() === B[j].toLowerCase()) { out.push(["=", B[j]]); i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) { out.push(["-", A[i]]); i++; } else { out.push(["+", B[j]]); j++; } }
+  while (i < n) out.push(["-", A[i++]]); while (j < m) out.push(["+", B[j++]]);
+  return out;
+}
+const CONSTRUCT = { vote_scenario: "a candidate who delivers outcomes but violates press freedom, versus an honest one who achieves little", party_scenario: "whether the respondent stays loyal when their own party postpones an election" };
+function drawVignettes() {
+  const box = $("vignettes"); box.replaceChildren();
+  for (const id of ["vote_scenario", "party_scenario"]) {
+    const loc = (D.contexts[ctx].vignettes[id] || D.base[id]).trim().replace(/\s+/g, " "), d = document.createElement("div"); d.className = "box";
+    const k = document.createElement("span"); k.className = "k"; k.textContent = id === "vote_scenario" ? "Vote scenario" : "Own-party scenario"; d.append(k);
+    const q = document.createElement("div"); q.className = "q";
+    for (const [op, w] of diff(D.base[id], loc)) { const s = document.createElement("span"); s.textContent = w; if (op === "+") s.className = "ins"; if (op === "-") s.className = "del"; q.append(s, document.createTextNode(" ")); }
+    d.append(q);
+    const c = document.createElement("div"); c.className = "construct"; c.innerHTML = "<b>Construct (fixed):</b> "; c.append(document.createTextNode(CONSTRUCT[id])); d.append(c);
+    box.append(d);
+  }
+}
+function drawGlossary() {
+  $("gloss").replaceChildren(...Object.entries(D.contexts[ctx].glossary).map(([t, c]) => { const s = document.createElement("span"); s.innerHTML = `<b></b> <i>→ </i>`; s.querySelector("b").textContent = t; s.querySelector("i").textContent = "→ " + lab(c); return s; }));
+  const items = D.eval[ctx] || [];
+  $("samples").replaceChildren(...items.map((it, i) => { const b = document.createElement("button"); b.textContent = it.text; b.title = it.text; b.setAttribute("aria-pressed", i === sampleIdx); b.onclick = () => { sampleIdx = i; $("answer").value = it.text; drawGlossary(); drawCoding(); }; return b; }));
+}
+function drawCoding() {
+  const text = $("answer").value, g = glossaryBy(ctx), lower = text.toLowerCase();
+  // highlight: glossary terms (local) vs base keywords
+  const spans = [];
+  const add = (kws, cls) => kws.forEach((k) => { const r = rx(k); let m; while ((m = r.exec(lower))) spans.push([m.index, m.index + k.length, cls]); });
+  add(Object.values(g).flat(), "local"); add(CK.flatMap((c) => CATS[c].keywords), "base");
+  spans.sort((a, b) => a[0] - b[0] || (a[2] === "local" ? -1 : 1));
+  const box = $("marked"); box.replaceChildren(); let at = 0;
+  for (const [s, e, cls] of spans) { if (s < at) continue; box.append(document.createTextNode(text.slice(at, s))); const el = document.createElement(cls === "local" ? "mark" : "span"); if (cls === "base") el.className = "bm"; el.textContent = text.slice(s, e); el.title = cls === "local" ? "local term from the context pack" : "generic codebook keyword"; box.append(el); at = e; }
+  box.append(document.createTextNode(text.slice(at)));
+  const w = codes(text, null), wc = codes(text, ctx);
+  const fill = (el, list, compare) => { el.replaceChildren(); if (!list.length) { const s = document.createElement("span"); s.className = "none"; s.textContent = "nothing coded"; el.append(s); }
+    list.forEach((c) => { const s = document.createElement("span"); s.className = "code" + (compare && !compare.includes(c) ? " new" : ""); s.textContent = lab(c); el.append(s); }); };
+  fill($("cWithout"), w); fill($("cWith"), wc, w);
+}
+function drawEval() {
+  const t = $("eval"); t.replaceChildren();
+  const head = document.createElement("thead"); head.innerHTML = "<tr><th>Context</th><th class='num'>Answers</th><th>Recall without → with</th><th>Precision without → with</th></tr>"; t.append(head);
+  const body = document.createElement("tbody");
+  for (const [k, r] of Object.entries(D.evalRes)) {
+    const tr = document.createElement("tr"); if (k === ctx) tr.className = "cur";
+    const cell = (a, b) => `${Math.round(a * 100)}%<span class="bar off" style="width:${a * 60}px"></span> → ${Math.round(b * 100)}%<span class="bar" style="width:${b * 60}px"></span>`;
+    tr.innerHTML = `<td>${NAMES[k]}</td><td class="num">${r.n}</td><td>${cell(r.without.recall, r.with.recall)}</td><td>${cell(r.without.precision, r.with.precision)}</td>`; body.append(tr);
+  }
+  t.append(body);
+}
+function drawChats() {
+  const C = D.contexts[ctx], q = (C.vignettes.party_scenario || D.base.party_scenario).trim().replace(/\s+/g, " "), refusal = "I would rather not say. It is not safe to talk about that.";
+  const mk = (title, msgs, verdict) => { const d = document.createElement("div"); d.className = "box"; const k = document.createElement("span"); k.className = "k"; k.textContent = title; d.append(k);
+    const c = document.createElement("div"); c.className = "chat"; msgs.forEach(([who, text, tag, bad]) => { const m = document.createElement("div"); m.className = "msg " + (who === "ai" ? "ai" : "me") + (bad ? " bad" : ""); if (tag) { const t = document.createElement("span"); t.className = "tag"; t.textContent = tag; m.append(t); } m.append(document.createTextNode(text)); c.append(m); });
+    d.append(c); const v = document.createElement("div"); v.className = "verdict"; v.innerHTML = verdict; d.append(v); return d; };
+  $("chats").replaceChildren(
+    mk("Without a context pack", [["ai", q, "script"], ["me", refusal], ["ai", "Could you say a bit more about that?", "probe agent · short answer → follow up", true]], "<b>Pushes</b> a respondent who signalled risk; the refusal is lost as 'low effort'."),
+    mk(`With the ${NAMES[ctx]} pack`, [["ai", q, "script"], ["me", refusal], ["ai", C.reassurance.trim().replace(/\s+/g, " "), "engine · sensitive topic: refusal respected"], ["ai", D.base.past_behaviour, "script · next question"]], "<b>Respects</b> the refusal, records it as its own outcome, and keeps the respondent in the interview.")
+  );
+  $("notes").innerHTML = "<b>Added to the agents' prompts:</b> "; $("notes").append(document.createTextNode(C.notes_for_agents.trim() + " " + C.probing_style.trim()));
+}
+function drawGuard() {
+  const C = D.contexts[ctx];
+  $("guard").replaceChildren(...C.interpretation_guardrails.map((g) => { const li = document.createElement("li"); li.textContent = g; return li; }));
+  $("lit").textContent = "Literature: " + (C.literature || []).join(" · ");
+}
+function setCtx(c) {
+  ctx = c; sampleIdx = 0; $("answer").value = (D.eval[c] || [{ text: "" }])[0].text;
+  document.querySelectorAll(".picker button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.c === c));
+  drawVignettes(); drawGlossary(); drawCoding(); drawEval(); drawChats(); drawGuard();
+}
+["bangladesh", "india", "germany"].forEach((c) => { const b = document.createElement("button"); b.dataset.c = c; b.textContent = NAMES[c]; b.onclick = () => setCtx(c); document.querySelector(".picker").append(b); });
+$("answer").addEventListener("input", () => { sampleIdx = -1; document.querySelectorAll("#samples button").forEach((b) => b.setAttribute("aria-pressed", false)); drawCoding(); });
+setCtx("bangladesh");
+</script>
+
+<a href="./" style="position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:12px;z-index:20;font:600 13px system-ui,sans-serif;background:#1a1e26;color:#fff;padding:7px 12px;border-radius:999px;text-decoration:none">← All demos</a>
+</body>
+</html>

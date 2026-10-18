@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "respondent_id": "S06",
+    "language": "en",
+    "persona": "participatory, deliberative",
+    "synthetic": true,
+    "bridge_arm": false,
+    "context": null,
+    "questionnaire_version": "0.2",
+    "backend": "hand-written persona",
+    "model": null
+  },
+  "turns": [
+    {
+      "role": "interviewer",
+      "text": "Hello, and thank you for taking part. I am an AI interviewer for a research study on how people think about democracy. There are no right or wrong answers. I am interested in your own views, in your own words. You can skip any question or stop at any time by typing \"stop\". Shall we begin?",
+      "type": "intro",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, let's start.",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "To start, in your own words: what does democracy mean to you?",
+      "type": "main_question",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "To me democracy is about people having a say in the decisions that affect them, not only on election day: community meetings, petitions, citizens' assemblies.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?",
+      "type": "main_question",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "No. Without a free press citizens cannot debate or hold anyone to account, so it is not a democracy.",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "What should democracy deliver for people like you?",
+      "type": "main_question",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Real participation, space for debate where people listen to each other, and an equal voice for rich and poor.",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "If you could only have one of the two, fair elections or fast development, which would you choose, and why?",
+      "type": "main_question",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Fair elections, but only as a start. Development decided without the people rarely serves them.",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "You mentioned participation, debate and an equal voice for rich and poor. How well does your country do on these today?",
+      "type": "dynamic_question",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Elections are fair, but people rarely have a say in local decisions, and rich and poor are not heard equally.",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?",
+      "type": "main_question",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "The honest one. A leader who arrests journalists will not listen to anyone else either.",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?",
+      "type": "main_question",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "I would protest, even against my own party. Stability bought by silencing voters just postpones the conflict.",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Did you vote in the last national election? Why or why not?",
+      "type": "main_question",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, and I volunteered as a polling agent.",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Is there anything else about democracy that you would like to add?",
+      "type": "main_question",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "I'd like to see more citizens' assemblies.",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "That was the last question. Thank you very much for sharing your thoughts. They are valuable for our research. Have a good day!",
+      "type": "outro",
+      "topic": null,
+      "module": null
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+# Context pack: India. Draft; to be reviewed by local experts and pre-tested.
+id: india
+name: India
+
+notes_for_agents: >-
+  Political identity in India is often bound up with caste, religion, region
+  and language. Never ask about these unless the respondent raises them, never
+  name parties or leaders yourself, and accept a refusal without asking why.
+  Welfare schemes and local self-government are central to how many citizens
+  experience democracy.
+
+vignettes:
+  vote_scenario: >-
+    Imagine two candidates in your constituency. One brought roads, electricity
+    and new welfare schemes to your area but had journalists arrested. The
+    other is honest but achieved little. Who would get your vote, and why?
+  party_scenario: >-
+    Imagine the party you support postponed the next general election, saying
+    the country needs stability first. What would you do: vote for them again,
+    protest, or something else?
+
+glossary:
+  panchayat: participation
+  gram sabha: participation
+  evm: elections
+  election commission: elections
+  vote bank: politicians
+  bandh: order
+  welfare scheme: services
+  ration: services
+  caste: equality
+  reservation: equality
+  communal: equality
+  bribe: corruption
+
+sensitive_topics: [party_scenario, past_behaviour]
+discomfort_markers: [prefer not, rather not, don't want to say, do not want to say, can't say, cannot say, not safe, risky]
+reassurance: >-
+  That is completely fine. You do not have to answer anything you are not
+  comfortable with, and your answers are anonymous. Let's move on.
+
+probing_style: >-
+  Respondents may answer through their community or locality ("in our village",
+  "people like us"). Treat this as a substantive answer and ask for an example,
+  not for a personal opinion they did not offer.
+
+interpretation_guardrails:
+  - "Equality and dignity (e.g. caste and reservation) can be central to the meaning of democracy; code them as equality, not as off-topic."
+  - "Welfare delivery is a common lens on democratic performance, and egalitarian understandings of democracy are well documented in Asian publics (e.g. Fossati & Martinez i Coma 2023 for Southeast Asia); do not treat it as purely clientelist."
+  - "Group-based answers ('people like us') are not low effort; assess elaboration by content, not by first-person phrasing."
+
+literature:
+  - "Fossati, D., & Martinez i Coma, F. (2023). The meaning of democracy in Southeast Asia: Liberalism, egalitarianism and participation. Cambridge University Press."
+  - "Shin, D. C. (2017). Popular understanding of democracy. Oxford Research Encyclopedia of Politics."

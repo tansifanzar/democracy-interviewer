@@ -1,0 +1,492 @@
+{
+ "bangladesh": {
+  "without": {
+   "precision": 0.8888888888888888,
+   "recall": 0.5714285714285714,
+   "rows": [
+    {
+     "text": "Every few months there is a hartal and the whole city stops.",
+     "gold": [
+      "order"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Without a caretaker government nobody trusts the result.",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "politicians"
+     ]
+    },
+    {
+     "text": "It was a one-sided election, so what is the point of voting?",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "elections"
+     ]
+    },
+    {
+     "text": "Load-shedding in summer makes life unbearable.",
+     "gold": [
+      "services"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Whoever controls the tender gets rich, and the roads fall apart in a year.",
+     "gold": [
+      "corruption",
+      "economy"
+     ],
+     "pred": [
+      "economy"
+     ]
+    },
+    {
+     "text": "A boy in my area was arrested for a Facebook post criticising the minister.",
+     "gold": [
+      "freedoms",
+      "politicians"
+     ],
+     "pred": [
+      "freedoms",
+      "politicians"
+     ]
+    },
+    {
+     "text": "Our union parishad chairman never asks the people anything.",
+     "gold": [
+      "participation"
+     ],
+     "pred": []
+    },
+    {
+     "text": "The Padma Bridge shows what development can do.",
+     "gold": [
+      "economy"
+     ],
+     "pred": [
+      "economy"
+     ]
+    },
+    {
+     "text": "Shop owners pay extortion to local leaders every month.",
+     "gold": [
+      "corruption",
+      "politicians"
+     ],
+     "pred": [
+      "politicians"
+     ]
+    },
+    {
+     "text": "People are afraid of the blockade and the violence around elections.",
+     "gold": [
+      "elections",
+      "order"
+     ],
+     "pred": [
+      "elections",
+      "order"
+     ]
+    }
+   ]
+  },
+  "with": {
+   "precision": 0.9333333333333333,
+   "recall": 1.0,
+   "rows": [
+    {
+     "text": "Every few months there is a hartal and the whole city stops.",
+     "gold": [
+      "order"
+     ],
+     "pred": [
+      "order"
+     ]
+    },
+    {
+     "text": "Without a caretaker government nobody trusts the result.",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "elections",
+      "politicians"
+     ]
+    },
+    {
+     "text": "It was a one-sided election, so what is the point of voting?",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "elections"
+     ]
+    },
+    {
+     "text": "Load-shedding in summer makes life unbearable.",
+     "gold": [
+      "services"
+     ],
+     "pred": [
+      "services"
+     ]
+    },
+    {
+     "text": "Whoever controls the tender gets rich, and the roads fall apart in a year.",
+     "gold": [
+      "corruption",
+      "economy"
+     ],
+     "pred": [
+      "corruption",
+      "economy"
+     ]
+    },
+    {
+     "text": "A boy in my area was arrested for a Facebook post criticising the minister.",
+     "gold": [
+      "freedoms",
+      "politicians"
+     ],
+     "pred": [
+      "freedoms",
+      "politicians"
+     ]
+    },
+    {
+     "text": "Our union parishad chairman never asks the people anything.",
+     "gold": [
+      "participation"
+     ],
+     "pred": [
+      "participation"
+     ]
+    },
+    {
+     "text": "The Padma Bridge shows what development can do.",
+     "gold": [
+      "economy"
+     ],
+     "pred": [
+      "economy"
+     ]
+    },
+    {
+     "text": "Shop owners pay extortion to local leaders every month.",
+     "gold": [
+      "corruption",
+      "politicians"
+     ],
+     "pred": [
+      "corruption",
+      "politicians"
+     ]
+    },
+    {
+     "text": "People are afraid of the blockade and the violence around elections.",
+     "gold": [
+      "elections",
+      "order"
+     ],
+     "pred": [
+      "elections",
+      "order"
+     ]
+    }
+   ]
+  },
+  "n": 10
+ },
+ "india": {
+  "without": {
+   "precision": 0.6,
+   "recall": 0.3,
+   "rows": [
+    {
+     "text": "The gram sabha in our village decides how the money is spent.",
+     "gold": [
+      "participation"
+     ],
+     "pred": [
+      "economy"
+     ]
+    },
+    {
+     "text": "They only care about their vote bank before elections.",
+     "gold": [
+      "elections",
+      "politicians"
+     ],
+     "pred": [
+      "elections"
+     ]
+    },
+    {
+     "text": "My family gets ration through the welfare scheme.",
+     "gold": [
+      "services"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Reservation gave my community a chance for the first time.",
+     "gold": [
+      "equality"
+     ],
+     "pred": [
+      "participation"
+     ]
+    },
+    {
+     "text": "People question the EVMs, but I trust the Election Commission.",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "elections"
+     ]
+    },
+    {
+     "text": "Another bandh, so the shops are closed again.",
+     "gold": [
+      "order"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Caste still decides who gets heard in the panchayat.",
+     "gold": [
+      "equality",
+      "participation"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Nothing happens in the office without a bribe.",
+     "gold": [
+      "corruption"
+     ],
+     "pred": [
+      "corruption"
+     ]
+    }
+   ]
+  },
+  "with": {
+   "precision": 0.8333333333333334,
+   "recall": 1.0,
+   "rows": [
+    {
+     "text": "The gram sabha in our village decides how the money is spent.",
+     "gold": [
+      "participation"
+     ],
+     "pred": [
+      "economy",
+      "participation"
+     ]
+    },
+    {
+     "text": "They only care about their vote bank before elections.",
+     "gold": [
+      "elections",
+      "politicians"
+     ],
+     "pred": [
+      "elections",
+      "politicians"
+     ]
+    },
+    {
+     "text": "My family gets ration through the welfare scheme.",
+     "gold": [
+      "services"
+     ],
+     "pred": [
+      "services"
+     ]
+    },
+    {
+     "text": "Reservation gave my community a chance for the first time.",
+     "gold": [
+      "equality"
+     ],
+     "pred": [
+      "equality",
+      "participation"
+     ]
+    },
+    {
+     "text": "People question the EVMs, but I trust the Election Commission.",
+     "gold": [
+      "elections"
+     ],
+     "pred": [
+      "elections"
+     ]
+    },
+    {
+     "text": "Another bandh, so the shops are closed again.",
+     "gold": [
+      "order"
+     ],
+     "pred": [
+      "order"
+     ]
+    },
+    {
+     "text": "Caste still decides who gets heard in the panchayat.",
+     "gold": [
+      "equality",
+      "participation"
+     ],
+     "pred": [
+      "equality",
+      "participation"
+     ]
+    },
+    {
+     "text": "Nothing happens in the office without a bribe.",
+     "gold": [
+      "corruption"
+     ],
+     "pred": [
+      "corruption"
+     ]
+    }
+   ]
+  },
+  "n": 8
+ },
+ "germany": {
+  "without": {
+   "precision": 0.75,
+   "recall": 0.375,
+   "rows": [
+    {
+     "text": "The Bundestag argues while rent keeps going up.",
+     "gold": [
+      "checks",
+      "economy"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Thank God the constitutional court stops the worst ideas.",
+     "gold": [
+      "checks"
+     ],
+     "pred": [
+      "checks"
+     ]
+    },
+    {
+     "text": "Getting an appointment at the office is pure bureaucracy.",
+     "gold": [
+      "services"
+     ],
+     "pred": []
+    },
+    {
+     "text": "The public broadcaster must stay independent of the government.",
+     "gold": [
+      "freedoms",
+      "politicians"
+     ],
+     "pred": [
+      "checks",
+      "politicians"
+     ]
+    },
+    {
+     "text": "Housing is the biggest problem for young families here.",
+     "gold": [
+      "economy"
+     ],
+     "pred": []
+    },
+    {
+     "text": "Politikverdrossenheit is everywhere; people think politicians don't care.",
+     "gold": [
+      "politicians"
+     ],
+     "pred": [
+      "politicians"
+     ]
+    }
+   ]
+  },
+  "with": {
+   "precision": 0.8888888888888888,
+   "recall": 1.0,
+   "rows": [
+    {
+     "text": "The Bundestag argues while rent keeps going up.",
+     "gold": [
+      "checks",
+      "economy"
+     ],
+     "pred": [
+      "checks",
+      "economy"
+     ]
+    },
+    {
+     "text": "Thank God the constitutional court stops the worst ideas.",
+     "gold": [
+      "checks"
+     ],
+     "pred": [
+      "checks"
+     ]
+    },
+    {
+     "text": "Getting an appointment at the office is pure bureaucracy.",
+     "gold": [
+      "services"
+     ],
+     "pred": [
+      "services"
+     ]
+    },
+    {
+     "text": "The public broadcaster must stay independent of the government.",
+     "gold": [
+      "freedoms",
+      "politicians"
+     ],
+     "pred": [
+      "checks",
+      "freedoms",
+      "politicians"
+     ]
+    },
+    {
+     "text": "Housing is the biggest problem for young families here.",
+     "gold": [
+      "economy"
+     ],
+     "pred": [
+      "economy"
+     ]
+    },
+    {
+     "text": "Politikverdrossenheit is everywhere; people think politicians don't care.",
+     "gold": [
+      "politicians"
+     ],
+     "pred": [
+      "politicians"
+     ]
+    }
+   ]
+  },
+  "n": 6
+ }
+}

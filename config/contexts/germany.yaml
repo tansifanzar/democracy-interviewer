@@ -1,0 +1,47 @@
+# Context pack: Germany. Every country gets a pack, including Western ones:
+# no country is the default against which others are measured.
+id: germany
+name: Germany
+
+notes_for_agents: >-
+  Respondents may be reluctant to state support for parties seen as extreme;
+  never ask which party someone supports and never name parties yourself.
+  Dissatisfaction with politicians is common and should not be read as
+  rejection of democracy as a principle.
+
+vignettes:
+  vote_scenario: >-
+    Imagine two candidates in your constituency. One got new housing built and
+    cut bureaucracy but had journalists' phones monitored. The other is honest
+    but achieved little. Who would get your vote, and why?
+  party_scenario: >-
+    Imagine the party you support postponed the next federal election, saying
+    the country needs stability first. What would you do: vote for them again,
+    protest, or something else?
+
+glossary:
+  bundestag: checks
+  constitutional court: checks
+  verfassungsgericht: checks
+  housing: economy
+  rent: economy
+  bureaucracy: services
+  public broadcaster: freedoms
+  politikverdrossenheit: politicians
+
+sensitive_topics: [party_scenario]
+discomfort_markers: [prefer not, rather not, don't want to say, do not want to say, none of your business]
+reassurance: >-
+  That is completely fine. You do not have to answer anything you are not
+  comfortable with, and your answers are anonymous. Let's move on.
+
+probing_style: >-
+  Respondents often answer in abstract institutional terms; ask for a concrete
+  example from their own experience.
+
+interpretation_guardrails:
+  - "High dissatisfaction alongside high support for democracy is the classic 'critical citizen' pattern (Norris 2011); separate evaluation from principle."
+  - "Abstract institutional vocabulary is not by itself a sign of sophistication; check for reasons and consistency."
+
+literature:
+  - "Norris, P. (2011). Democratic deficit: Critical citizens revisited. Cambridge University Press."

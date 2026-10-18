@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "respondent_id": "S01",
+    "language": "en",
+    "persona": "principled democrat",
+    "synthetic": true,
+    "bridge_arm": false,
+    "context": null,
+    "questionnaire_version": "0.2",
+    "backend": "hand-written persona",
+    "model": null
+  },
+  "turns": [
+    {
+      "role": "interviewer",
+      "text": "Hello, and thank you for taking part. I am an AI interviewer for a research study on how people think about democracy. There are no right or wrong answers. I am interested in your own views, in your own words. You can skip any question or stop at any time by typing \"stop\". Shall we begin?",
+      "type": "intro",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, let's start.",
+      "topic": null,
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "To start, in your own words: what does democracy mean to you?",
+      "type": "main_question",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "Democracy means people choose and can remove their government in free elections. But it also means courts are independent and the press can criticise those in power, because otherwise elections become a show.",
+      "topic": "concept_meaning",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "Would a country that holds regular elections, but where newspapers cannot criticise the government, still be a democracy? Why or why not?",
+      "type": "main_question",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "respondent",
+      "text": "No, that is not a democracy. If newspapers cannot criticise the government, voters cannot know what they are choosing.",
+      "topic": "concept_boundary",
+      "module": "concept"
+    },
+    {
+      "role": "interviewer",
+      "text": "What should democracy deliver for people like you?",
+      "type": "main_question",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Equal treatment for everyone, honest officials, and citizens who have a say in decisions.",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "Which of these matters most to you?",
+      "topic": "expect",
+      "module": "expectation",
+      "type": "follow_up"
+    },
+    {
+      "role": "respondent",
+      "text": "Having a say, because then people can fix the other problems themselves.",
+      "topic": "expect",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "If you could only have one of the two, fair elections or fast development, which would you choose, and why?",
+      "type": "main_question",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Fair elections. Development without accountability ends up in a few pockets.",
+      "topic": "tradeoff",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "You mentioned equal treatment, honest officials and having a say. How well does your country do on these today?",
+      "type": "dynamic_question",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "respondent",
+      "text": "Elections work well and power changes hands peacefully. But corruption is still a problem, and citizens rarely have a say in decisions. Equal treatment is improving.",
+      "topic": "reality",
+      "module": "expectation"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine two candidates. One delivered new roads and bridges but had journalists arrested. The other is honest but achieved little. Who would get your vote, and why?",
+      "type": "main_question",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "The honest one. Arresting journalists is a line I would not cross, even for new roads.",
+      "topic": "vote_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Imagine the party you support postponed the next national election, saying the country needs stability first. What would you do: vote for them again, protest, or something else?",
+      "type": "main_question",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "I would not vote for them again. Postponing elections is how democracies end, whichever party does it.",
+      "topic": "party_scenario",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Did you vote in the last national election? Why or why not?",
+      "type": "main_question",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "respondent",
+      "text": "Yes, I always vote. It is the least a citizen can do.",
+      "topic": "past_behaviour",
+      "module": "behaviour"
+    },
+    {
+      "role": "interviewer",
+      "text": "Is there anything else about democracy that you would like to add?",
+      "type": "main_question",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "respondent",
+      "text": "No, I think I've said everything.",
+      "topic": "closing",
+      "module": null
+    },
+    {
+      "role": "interviewer",
+      "text": "That was the last question. Thank you very much for sharing your thoughts. They are valuable for our research. Have a good day!",
+      "type": "outro",
+      "topic": null,
+      "module": null
+    }
+  ]
+}
