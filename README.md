@@ -4,7 +4,7 @@
 
 People say they support democracy, yet many tolerate leaders who undermine it. Closed-ended surveys struggle to show *why*, because the answer options only capture what researchers already expect. This project is a small, working prototype of the alternative: an LLM interviews people, asks adaptive follow-up questions, and the resulting text is coded and mapped.
 
-**▶ Interactive demos (no install): https://YOUR-USERNAME.github.io/democracy-interviewer/** (Journey Map · Agent Trace · Context Lens · Forking Paths Lab)
+**▶ Interactive demos (no install): https://tansifanzar.github.io/democracy-interviewer/** (Journey Map · Agent Trace · Context Lens · Forking Paths Lab)
 
 It is inspired by *AI Conversational Interviewing* (Wuttke et al., 2024, [arXiv:2410.01824](https://doi.org/10.48550/arXiv.2410.01824)) and the Emmy Noether project *Predictably Paradoxical: Mapping the Democratic Mind with AI* at LMU Munich. It is an independent demo and is not affiliated with either.
 
